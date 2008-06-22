@@ -3,6 +3,8 @@ LICENSE.txt
 Manifest.txt
 README.txt
 Rakefile
+bigmoney.gemspec
 lib/big_money.rb
 lib/big_money/big_money.rb
+lib/big_money/core_extensions.rb
 test/test_big_money.rb

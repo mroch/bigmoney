@@ -14,9 +14,9 @@ class BigMoney
   
   attr_reader :amount, :currency
   
-  def initialize(amount, currency = self.default_currency)
+  def initialize(amount, currency = nil)
     @amount = amount.class == BigDecimal ? amount : BigDecimal.new(amount.to_s)
-    @currency = currency
+    @currency = currency || self.default_currency
   end
   
   def eql?(other_money)

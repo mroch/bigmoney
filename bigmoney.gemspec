@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     "README.txt",
     "lib/big_money.rb",
     "lib/big_money/big_money.rb",
+    "lib/big_money/core_extensions.rb",
     "test/test_big_money.rb"
   ]
   s.test_files = ["test/test_big_money.rb"]
