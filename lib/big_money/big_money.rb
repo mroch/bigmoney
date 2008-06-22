@@ -1,7 +1,7 @@
 require 'bigdecimal'
 
 class BigMoney
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
   
   class MoneyError < StandardError ; end
   class UncomparableCurrency < MoneyError ; end
