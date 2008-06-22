@@ -1,6 +1,4 @@
-=== 1.0.0 / 2008-06-21
+=== 0.1.0 / 2008-06-21
 
-* 1 major enhancement
-
-  * Birthday!
+* Initial beta release
 

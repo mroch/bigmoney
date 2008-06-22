@@ -6,7 +6,7 @@ class BigMoney
   class MoneyError < StandardError ; end
   class UncomparableCurrency < MoneyError ; end
   
-  @@default_currency = :usd
+  @@default_currency = :USD
   def self.default_currency ; @@default_currency ; end
   def self.default_currency=(c) ; @@default_currency = c ; end
   def default_currency ; self.class.default_currency ; end

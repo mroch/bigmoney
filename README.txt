@@ -1,32 +1,54 @@
 = BigMoney
 
-* FIX (url)
-
 == DESCRIPTION:
 
-FIX (describe your package)
+Represents an amount of money in a particular currency. Backed by BigDecimal, 
+so is safe from float rounding errors.
 
-== FEATURES/PROBLEMS:
+== FEATURES:
 
-* FIX (list of features or problems)
+* Encapsulates an amount with its currency into a single object.
+
+* Backed by BigDecimal, so it can store arbitrary-precision values without 
+  rounding errors. Useful if you're dealing with fractional cents.
+
+== PROBLEMS:
+
+* Does not implement all of Numeric, so doesn't quite act like a real number
+
+* Doesn't allow currency conversion (patches welcome)
+
+* Has a slightly different API than the Money package 
+  (http://dist.leetsoft.com/api/money/)
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
-
-== REQUIREMENTS:
-
-* FIX (list of requirements)
+  bm = BigMoney.new('3.99')
+  bm.amount                       #=> BigDecimal.new('3.99')
+  bm.currency                     #=> :USD
+  bm.to_s                         #=> '3.99'
+  bm.to_formatted_s('$%.2f')      #=> '$3.99'
+  bm.to_formatted_s('$%.2f %s')   #=> '$3.99 USD'
+  
+  bm2 = BigMoney.new(1)
+  bm + bm2                        #=> BigMoney.new(4.99)
+  bm + 1                          #=> BigMoney.new(4.99)
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* Via git:
+
+    git clone git://github.com/mroch/bigmoney.git
+
+* From RubyForge: TBA
+
+* Via gem: TBA
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 FIX
+Copyright (c) 2008 Marshall Roch
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
