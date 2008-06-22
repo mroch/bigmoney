@@ -1,0 +1,8 @@
+History.txt
+LICENSE.txt
+Manifest.txt
+README.txt
+Rakefile
+lib/big_money.rb
+lib/big_money/big_money.rb
+test/test_big_money.rb
