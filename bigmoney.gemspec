@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = "BigMoney"
-  s.version = "0.1.1"
-  s.date = "2008-06-21"
+  s.version = "0.1.2"
+  s.date = "2008-08-09"
   s.summary = "Represents an amount of money in a particular currency."
   s.email = "mroch@cmu.edu"
   s.homepage = "http://github.com/mroch/bigmoney"

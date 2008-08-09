@@ -30,7 +30,7 @@ so is safe from float rounding errors.
   bm.to_formatted_s('$%.2f')      #=> '$3.99'
   bm.to_formatted_s('$%.2f %s')   #=> '$3.99 USD'
   
-  bm2 = BigMoney.new(1)
+  bm2 = 1.to_big_money
   bm + bm2                        #=> BigMoney.new(4.99)
   bm + 1                          #=> BigMoney.new(4.99)
 
@@ -40,9 +40,9 @@ so is safe from float rounding errors.
 
     git clone git://github.com/mroch/bigmoney.git
 
-* From RubyForge: TBA
+* Via gem:
 
-* Via gem: TBA
+    gem install mroch-BigMoney -s http://gems.github.com
 
 == LICENSE:
 
