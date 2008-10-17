@@ -1,12 +1,13 @@
 require 'bigdecimal'
 
 class BigMoney
-  VERSION = '0.1.1'
+  VERSION = '0.2.1'
 
-  class MoneyError < StandardError ; end
-  class UncomparableCurrency < MoneyError ; end
+  class MoneyError < StandardError; end
+  class UnknownCurrency < MoneyError; end
+  class UncomparableCurrency < MoneyError; end
 
-  @@default_currency = :USD
+  @@default_currency = Currency::USD.instance
   def self.default_currency ; @@default_currency ; end
   def self.default_currency=(c) ; @@default_currency = c ; end
   def default_currency ; self.class.default_currency ; end
@@ -15,8 +16,9 @@ class BigMoney
   attr_reader :amount, :currency
 
   def initialize(amount, currency = nil)
-    @amount = amount.class == BigDecimal ? amount : BigDecimal.new(amount.to_s)
-    @currency = currency || self.default_currency
+    @amount   = amount.class == BigDecimal ? amount : BigDecimal.new(amount.to_s)
+    @currency = Currency.parse(currency || default_currency) or \
+      raise UnknownCurrency, "Cannot parse '#{currency}'."
   end
 
   def eql?(other_money)
@@ -55,11 +57,11 @@ class BigMoney
   end
 
   def to_s
-    to_formatted_s('%.2f')
+    to_formatted_s("%.#{currency.offset}f")
   end
 
   def to_formatted_s(format)
-    format.sub(/%s/, currency.to_s.upcase) % amount
+    format.sub(/%s/, currency.code) % amount
   end
 
   def to_i
@@ -68,6 +70,15 @@ class BigMoney
 
   def to_f
     amount.to_f
+  end
+
+  def exchange(to)
+    ex = amount * Exchange.rate(currency, to)
+    BigMoney.new(ex, to)
+  end
+
+  def self.currency(code)
+    Currency.parse(code)
   end
 
 private

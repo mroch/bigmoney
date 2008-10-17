@@ -1,0 +1,16 @@
+class BigMoney
+  class Currency
+  <% currencies.each do |currency| -%>
+    # <%= currency[:code] %>
+    #
+    # <%= currency[:name] %>.
+    class <%= currency[:code].upcase %> < Currency
+      self.name = %q{<%= currency[:name] %>}
+      self.code = %q{<%= currency[:code] %>}
+      self.offset = <%= currency[:offset] %>
+    end
+
+  <% end -%>
+  end # Currency
+end # BigMoney
+
