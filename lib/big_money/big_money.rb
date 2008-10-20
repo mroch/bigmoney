@@ -72,11 +72,17 @@ class BigMoney
     amount.to_f
   end
 
+  # Exchange to a new Currency.
+  #
+  #   BigMoney.new(12.50, :aud).exchange(:usd)
   def exchange(to)
     ex = amount * Exchange.rate(currency, to)
     BigMoney.new(ex, to)
   end
 
+  # Short form BigMoney::Currency.parse(code) to save some typing.
+  #
+  #   BigMoney.currency(:usd) #=> BigMoney::Currency.parse(:usd)
   def self.currency(code)
     Currency.parse(code)
   end

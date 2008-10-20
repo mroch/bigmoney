@@ -1,16 +1,22 @@
 require 'bigdecimal'
 
 class BigMoney
+
+  # Find the exchange rate between two currencies.
+  #
+  # Be aware no caching is done at all at the moment.
   class Exchange
     class ExchangeError < StandardError; end
     class ConversionError < ExchangeError; end
 
     class << self
       @@services = []
-      def inherited(service)
+      def inherited(service) #:nodoc:
         @@services << service
       end
 
+      # Fetch the exchange rate between two currencies. The arguments may be anything that BigMoney::Currency can
+      # parse. The rate is returned as a BigDecimal.
       def rate(from, to)
         exchange = [from, to].map do |c|
           Currency.parse(c) or raise BigMoney::UnknownCurrency
@@ -36,4 +42,5 @@ class BigMoney
         end
     end
   end # Exchange
+
 end # Money
