@@ -14,4 +14,8 @@ class TestExchange < Test::Unit::TestCase
       BigMoney::Exchange.rate(:aud, :fud)
     end
   end
+
+  def test_equal_rate
+    assert_equal BigDecimal(1.to_s), BigMoney::Exchange.rate(:usd, :usd)
+  end
 end

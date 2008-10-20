@@ -21,13 +21,14 @@ class BigMoney
         exchange = [from, to].map do |c|
           Currency.parse(c) or raise BigMoney::UnknownCurrency
         end
+        return BigDecimal(1.to_s) if exchange.uniq.length == 1
 
         service = @@services.reverse.find do |service|
           !!exchange.reject{|c| service.currencies.include?(c)}
         end
 
         service or raise ConversionError # TODO: Message?
-        BigDecimal.new(service.read_rate(*exchange))
+        BigDecimal.new(service.read_rate(*exchange).to_s)
       end
 
       protected
