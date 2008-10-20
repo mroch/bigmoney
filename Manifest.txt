@@ -7,4 +7,14 @@ bigmoney.gemspec
 lib/big_money.rb
 lib/big_money/big_money.rb
 lib/big_money/core_extensions.rb
+lib/big_money/currency.rb
+lib/big_money/currency/iso4217.rb
+lib/big_money/exchange.rb
+lib/big_money/exchange/yahoo.rb
+rakelib/cultivate.rake
+rakelib/iso4217.rake
+rakelib/iso4217.rb
+rakelib/iso4217.rb.erb
 test/test_big_money.rb
+test/test_currency.rb
+test/test_exchange.rb
