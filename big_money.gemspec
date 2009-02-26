@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{big_money}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marshall Roch"]
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{Represents an amount of money in a particular currency. Backed by BigDecimal,  so is safe from float rounding errors.}
   s.email = ["mroch@cmu.edu"]
   s.extra_rdoc_files = ["History.txt", "LICENSE.txt", "Manifest.txt", "README.txt"]
-  s.files = ["History.txt", "LICENSE.txt", "Manifest.txt", "README.txt", "Rakefile", "bigmoney.gemspec", "lib/big_money.rb", "lib/big_money/big_money.rb", "lib/big_money/core_extensions.rb", "lib/big_money/currency.rb", "lib/big_money/currency/iso4217.rb", "lib/big_money/exchange.rb", "lib/big_money/exchange/yahoo.rb", "rakelib/cultivate.rake", "rakelib/iso4217.rake", "rakelib/iso4217.rb", "rakelib/iso4217.rb.erb", "test/test_big_money.rb", "test/test_currency.rb", "test/test_exchange.rb"]
+  s.files = ["History.txt", "LICENSE.txt", "Manifest.txt", "README.txt", "Rakefile", "big_money.gemspec", "lib/big_money.rb", "lib/big_money/big_money.rb", "lib/big_money/core_extensions.rb", "lib/big_money/currency.rb", "lib/big_money/currency/iso4217.rb", "lib/big_money/exchange.rb", "lib/big_money/exchange/yahoo.rb", "rakelib/cultivate.rake", "rakelib/iso4217.rake", "rakelib/iso4217.rb", "rakelib/iso4217.rb.erb", "test/test_big_money.rb", "test/test_currency.rb", "test/test_exchange.rb"]
   s.has_rdoc = true
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
